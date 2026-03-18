@@ -3,26 +3,62 @@
 <head>
 <title>Maths Formulas</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body {
   font-family: Arial;
   background: linear-gradient(to right, #74ebd5, #ACB6E5);
   text-align: center;
+  margin: 0;
 }
 
 h1 {
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .box {
-  background: white;
+  background:rgb(120, 141, 160);
   margin: 20px auto;
   padding: 20px;
-  width: 60%;
-  border-radius: 10px;
+  width: 80%;
+  border-radius: 12px;
   box-shadow: 0 0 10px gray;
+  text-align: left;
+}
+
+button {
+  padding: 6px 12px;
+  background: #39958a;
+  color: rgb(36, 93, 205);
+  border: none;
+  border-radius: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.content.show {
+  max-height: 300px;
 }
 </style>
+
+<script>
+function toggle(id) {
+  document.getElementById(id).classList.toggle("show");
+}
+
+function checkAnswer(q, ans) {
+  let r = document.getElementById(q);
+  r.innerHTML = ans ? "✅ Correct" : "❌ Wrong";
+  r.style.color = ans ? "green" : "red";
+}
+</script>
 
 </head>
 
@@ -30,20 +66,157 @@ h1 {
 
 <h1>📘 Maths Formulas</h1>
 
+<!-- ALGEBRA -->
 <div class="box">
-<h2>Algebra</h2>
-<p>(a + b)² = a² + 2ab + b²</p>
+<h2>🔢 Algebra</h2>
+
+<p>(a+b)² = a² + 2ab + b²</p>
+<button onclick="toggle('a1')">Steps</button>
+<div id="a1" class="content">👉 (a+b)(a+b)</div>
+
+<p>(a-b)² = a² - 2ab + b²</p>
+<button onclick="toggle('a2')">Steps</button>
+<div id="a2" class="content">👉 (a-b)(a-b)</div>
+
+<p>a² - b² = (a-b)(a+b)</p>
+<button onclick="toggle('a3')">Explain</button>
+<div id="a3" class="content">👉 Difference of squares</div>
+
+<p>(a+b+c)²</p>
+<button onclick="toggle('a4')">Steps</button>
+<div id="a4" class="content">👉 a²+b²+c²+2ab+2bc+2ca</div>
+
 </div>
 
+<!-- MATRICES -->
 <div class="box">
-<h2>Trigonometry</h2>
+<h2>🔲 Matrices</h2>
+
+<p>Addition: A + B</p>
+<button onclick="toggle('m1')">Explain</button>
+<div id="m1" class="content">👉 Add corresponding elements</div>
+
+<p>Multiplication: AB</p>
+<button onclick="toggle('m2')">Explain</button>
+<div id="m2" class="content">👉 Row × Column</div>
+
+<p>Determinant (2x2)</p>
+<button onclick="toggle('m3')">Steps</button>
+<div id="m3" class="content">👉 ad - bc</div>
+
+</div>
+
+<!-- TRIGONOMETRY -->
+<div class="box">
+<h2>📐 Trigonometry</h2>
+
 <p>sin²θ + cos²θ = 1</p>
+<button onclick="toggle('t1')">Explain</button>
+<div id="t1" class="content">👉 Identity</div>
+
+<p>tanθ = sinθ/cosθ</p>
+<button onclick="toggle('t2')">Explain</button>
+<div id="t2" class="content">👉 Ratio</div>
+
+<p>1 + tan²θ = sec²θ</p>
+<button onclick="toggle('t3')">Explain</button>
+<div id="t3" class="content">👉 Derived</div>
+
 </div>
 
+<!-- DIFFERENTIATION -->
 <div class="box">
-<h2>Calculus</h2>
+<h2>📊 Differentiation</h2>
+
 <p>d/dx (x²) = 2x</p>
+<button onclick="toggle('d1')">Steps</button>
+<div id="d1" class="content">👉 Power rule</div>
+
+<p>d/dx (x³) = 3x²</p>
+<button onclick="toggle('d2')">Steps</button>
+<div id="d2" class="content">👉 Power rule</div>
+
+<p>d/dx (sin x) = cos x</p>
+<button onclick="toggle('d3')">Explain</button>
+<div id="d3" class="content">👉 Standard derivative</div>
+
+<p>d/dx (cos x) = -sin x</p>
+<button onclick="toggle('d4')">Explain</button>
+<div id="d4" class="content">👉 Standard derivative</div>
+
 </div>
+
+<!-- INTEGRATION -->
+<div class="box">
+<h2>∫ Integration</h2>
+
+<p>∫x dx = x²/2</p>
+<button onclick="toggle('i1')">Steps</button>
+<div id="i1" class="content">👉 Reverse of differentiation</div>
+
+<p>∫sin x dx = -cos x</p>
+<button onclick="toggle('i2')">Steps</button>
+<div id="i2" class="content">👉 Standard integral</div>
+
+</div>
+
+<!-- GEOMETRY -->
+<div class="box">
+<h2>📏 Geometry</h2>
+
+<p>Area of circle = πr²</p>
+<button onclick="toggle('g1')">Explain</button>
+<div id="g1" class="content">👉 Area formula</div>
+
+<p>Circumference = 2πr</p>
+<button onclick="toggle('g2')">Explain</button>
+<div id="g2" class="content">👉 Boundary</div>
+
+<p>Area of triangle = 1/2 bh</p>
+<button onclick="toggle('g3')">Explain</button>
+<div id="g3" class="content">👉 Basic</div>
+
+</div>
+
+<!-- QUIZ -->
+<div class="box">
+<h2>🧠 Practice Quiz</h2>
+
+<p>1. (a+b)² = ?</p>
+<button onclick="checkAnswer('q1',true)">a²+2ab+b²</button>
+<button onclick="checkAnswer('q1',false)">a²+b²</button>
+<p id="q1"></p>
+
+<p>2. sin²θ+cos²θ = ?</p>
+<button onclick="checkAnswer('q2',true)">1</button>
+<button onclick="checkAnswer('q2',false)">0</button>
+<p id="q2"></p>
+
+<p>3. Determinant of 2x2?</p>
+<button onclick="checkAnswer('q3',true)">ad-bc</button>
+<button onclick="checkAnswer('q3',false)">a+b</button>
+<p id="q3"></p>
+
+<p>4. d/dx x² = ?</p>
+<button onclick="checkAnswer('q4',true)">2x</button>
+<button onclick="checkAnswer('q4',false)">x</button>
+<p id="q4"></p>
+
+<p>5. Area circle?</p>
+<button onclick="checkAnswer('q5',true)">πr²</button>
+<button onclick="checkAnswer('q5',false)">2πr</button>
+<p id="q5"></p>
+
+<p>6. tanθ = ?</p>
+<button onclick="checkAnswer('q6',true)">sin/cos</button>
+<button onclick="checkAnswer('q6',false)">cos/sin</button>
+<p id="q6"></p>
+
+</div>
+
+<footer>
+<p>© 2026 Suba Sree</p>
+</footer>
 
 </body>
-</html>
+</html
